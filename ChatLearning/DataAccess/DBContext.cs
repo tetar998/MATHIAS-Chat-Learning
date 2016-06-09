@@ -242,5 +242,21 @@ namespace ChatLearning.DataAccess
         }
 
         #endregion
+
+        #region Plugins
+
+        public static List<string> GetListOfPlugins()
+        {
+            List<string> listOfPlugins = new List<string>();
+
+            using (dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                listOfPlugins = dbConnection.Query<string>("select PLUNAME from PLUGIN").ToList();
+            }
+
+            return listOfPlugins;
+        }
+
+        #endregion
     }
 }

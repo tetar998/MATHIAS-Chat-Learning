@@ -14,8 +14,6 @@ namespace ChatLearning.Controllers
     /// </summary>
     public class HomeController : Controller
     {
-        private char[] listOfUselesscharacters = new char[] { ' ', '²', '&', '"', '(', '-', '_', '~', '#', '^', '$', '*', 'µ', '%', '!', ':', ';', ',', '+', '?' };
-
         /// <summary>
         /// Chargement de la vue Index
         /// </summary>
@@ -59,12 +57,28 @@ namespace ChatLearning.Controllers
             return Newtonsoft.Json.JsonConvert.SerializeObject("J'ai appris que à la phrase : << " + sentence + " >>, je devais répondre : << " + answer + " >>");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         [HttpPost]
         public string GetAnswersTags(string text)
         {
-            List<string> listOfAnswersTags = DBContext.GetListOfAnswers(text);
+             List<string> listOfAnswersTags = DBContext.GetListOfAnswers(text);
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(listOfAnswersTags);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string GetListOfPlugins()
+        {
+            List<string> listOfPlugins = DBContext.GetListOfPlugins();
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(listOfPlugins);
         }
     }
 }

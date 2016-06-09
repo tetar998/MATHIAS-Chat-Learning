@@ -24,6 +24,7 @@ namespace ChatLearning
                 "~/Content/jquery-ui.theme.min.css",
                 "~/Content/bootstrap.min.css",
                 "~/Content/Loader.css",
+                "~/Content/font-awesome.min.css",
                 "~/Content/Chat.css",
                 "~/Content/Site.css"));
         }
